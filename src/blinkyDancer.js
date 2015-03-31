@@ -5,10 +5,14 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps){
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
 
+
 };
 
 var BlinkyDancer = function(top, left, timeBetweenSteps) {
   Dancer.apply(this, arguments);
+  this.$node = $('<img src="imgs/aaron-copy.png" class="aaron">');
+  this.step();
+  this.setPosition(top, left);
 };
 
 BlinkyDancer.prototype = Object.create(Dancer.prototype);
@@ -23,6 +27,7 @@ BlinkyDancer.prototype.step = function(){
     // other effects you can use on a jQuery-wrapped html tag.
 
   };
+
 
 /*
 Refactor the Dancer class and its subclass BlinkyDancer from functional

@@ -6,23 +6,33 @@
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/makeMarshawn.js"></script>
+    <script src="src/makeFootball.js"></script>
+
   </head>
   <body>
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>
-      <a href="#" class="line-up" >Lineup</a>       
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">Add Aaron</a>
+
+      <a href="#" class="addMarshawn" data-dancer-maker-function-name="makeMarshawn">Add Marshawn</a>
+
+      <a href="#" class="addFootball" data-dancer-maker-function-name="makeFootball">Add Football</a>
+
+      <a href="#" class="passFootball">Pass Football</a>
+
+      <a href="#" class="line-up" >Lineup</a>
       </div>
     <script src="src/init.js"></script>
     <script>
 
     var dance = function() {
-    
-      $("img").animate({
+
+      $(".aaron, .marshawn").animate({
         left: '+=10px',
       });
       setTimeout(function() {}, 300);
-      $("img").animate({
+      $(".aaron, .marshawn").animate({
           left: '-=10px',
         });
 
@@ -34,13 +44,17 @@
     dance();
 
     $('.line-up').on('click', function() {
-      console.log('line up!');     
-      $(".dancer").animate({
+      console.log('line up!');
+      $(".aaron").animate({
         left: '200px'
+      });
+
+      $(".marshawn").animate({
+        left: '800px'
       });
     });
 
-  
+
   </script>
   </body>
 </html>

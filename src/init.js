@@ -3,33 +3,65 @@ $(document).ready(function(){
 
   $(".addDancerButton").on("click", function(event){
 
-    /* This function sets up the click handlers for the create-dancer
-     * buttons on index.html. You should only need to make one small change to it.
-     * As long as the "data-dancer-maker-function-name" attribute of a
-     * class="addDancerButton" DOM node matches one of the names of the
-     * maker functions available in the global scope, clicking that node
-     * will call the function to make the dancer.
-     */
-
-    /* dancerMakerFunctionName is a string which must match
-     * one of the dancer maker functions available in global scope.
-     * A new object of the given type will be created and added
-     * to the stage.
-     */
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
+    for (var i = 0; i < 6; i++) {
 
-    var dancer = dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
+      var dancer = dancerMakerFunction(
+        $("body").height() * Math.random(),
+        $("body").width() * Math.random(),
+        Math.random() * 1000
+      );
+      $('body').append(dancer.$node);
+      dancers.push(dancer)
+    };
+
+  });
+
+  $(".addMarshawn").on("click", function(event){
+
+    var marshawnMakerFunctionName = $(this).data("dancer-maker-function-name");
+
+    // get the maker function for the kind of dancer we're supposed to make
+    var marshawnMakerFunction = window[marshawnMakerFunctionName];
+
+    for (var i = 0; i < 6; i++) {
+      var dancer = marshawnMakerFunction(
+        $("body").height() * Math.random(),
+        $("body").width() * Math.random(),
+        Math.random() * 1000
+      );
+      $('body').append(dancer.$node);
+      dancers.push(dancer);
+    }
+  });
+
+  $(".addFootball").on("click", function(event){
+
+    var footballMakerFunctionName = $(this).data("dancer-maker-function-name");
+
+    // get the maker function for the kind of dancer we're supposed to make
+    var footballMakerFunction = window[footballMakerFunctionName];
+    var dancer = footballMakerFunction(
+      window.dancers[0].top,
+      window.dancers[0].left
     );
     $('body').append(dancer.$node);
-    dancers.push(dancer)
+    dancers.push(dancer);
+
+  });
+
+  $(".passFootball").on("click", function(event){
+
+    var index = Math.floor(Math.random() * window.dancers.length);
+    $('.football').animate({
+      left: window.dancers[index].$node.position().left,
+      top: window.dancers[index].$node.position().top
+    })
 
   });
 });
