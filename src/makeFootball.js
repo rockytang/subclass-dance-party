@@ -12,6 +12,18 @@ var Football = function(top, left, timeBetweenSteps) {
   this.$node = $('<img src="imgs/football.png" class="football">');
   this.step();
   this.setPosition(top, left);
+
+  var context = this.$node;
+
+  this.$node.hover(function(){
+
+    var index = Math.floor(Math.random() * window.dancers.length);
+
+    context.animate({
+      left: window.dancers[index].$node.position().left,
+      top: window.dancers[index].$node.position().top
+    });
+  });
 };
 
 Football.prototype = Object.create(Dancer.prototype);
@@ -22,3 +34,4 @@ Football.prototype.step = function(){
   Dancer.prototype.step.apply(this, arguments);
 
 };
+

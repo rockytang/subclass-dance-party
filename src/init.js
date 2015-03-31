@@ -25,8 +25,6 @@ $(document).ready(function(){
   $(".addMarshawn").on("click", function(event){
 
     var marshawnMakerFunctionName = $(this).data("dancer-maker-function-name");
-
-    // get the maker function for the kind of dancer we're supposed to make
     var marshawnMakerFunction = window[marshawnMakerFunctionName];
 
     for (var i = 0; i < 6; i++) {
@@ -43,8 +41,6 @@ $(document).ready(function(){
   $(".addFootball").on("click", function(event){
 
     var footballMakerFunctionName = $(this).data("dancer-maker-function-name");
-
-    // get the maker function for the kind of dancer we're supposed to make
     var footballMakerFunction = window[footballMakerFunctionName];
     var dancer = footballMakerFunction(
       window.dancers[0].top,
@@ -62,7 +58,7 @@ $(document).ready(function(){
       left: window.dancers[index].$node.position().left,
       top: window.dancers[index].$node.position().top
     })
-
   });
 });
+
 
