@@ -22,10 +22,6 @@ var Dancer = function(top, left, timeBetweenSteps) {
 Dancer.prototype.step = function(){
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
-
-  // var bound = this.step.bind(this);
-
-  console.log('logging' + this);
   setTimeout(this.step.bind(this), this.passing);
 };
 

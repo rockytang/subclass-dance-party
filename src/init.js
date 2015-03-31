@@ -3,10 +3,6 @@ $(document).ready(function(){
 
   $(".addDancerButton").on("click", function(event){
 
-  
-    
-        
-    
     /* This function sets up the click handlers for the create-dancer
      * buttons on index.html. You should only need to make one small change to it.
      * As long as the "data-dancer-maker-function-name" attribute of a
@@ -33,10 +29,6 @@ $(document).ready(function(){
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
-
-
-
-
 
   });
 });
