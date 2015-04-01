@@ -21,4 +21,5 @@ Marshawn.prototype.step = function(){
     // call the old version of step at the beginning of any call to this new version of step
   Dancer.prototype.step.apply(this, arguments);
 
+  // this.$node.toggle();
 };
